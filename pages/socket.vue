@@ -21,13 +21,13 @@
 
   onMounted(() => {
     $io.on('message', ({ data }: { data: string}) => {
+      console.log('gotamessage', data)
       addMessage(data)
     })
   })
 
   const sendMessage = (tosend: string) => {
     const stamp = Date.now().toString()
-    console.log(message.value)
     $io.emit("message", message.value || stamp)
   };
   
