@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form @submit.prevent="sendMessage">
+    <form @submit.prevent="sendMessage(message)">
       <button type="submit" class="btn btn-primary">Send Message</button>
       <input v-model="message" />
     </form>
@@ -21,13 +21,13 @@
 
   onMounted(() => {
     $io.on('message', ({ data }: { data: string}) => {
-      console.log('gotamessage', data)
       addMessage(data)
     })
   })
 
   const sendMessage = (tosend: string) => {
     const stamp = Date.now().toString()
+    addMessage(message.value)
     $io.emit("message", message.value || stamp)
   };
   
