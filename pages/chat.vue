@@ -1,14 +1,5 @@
 <template>
-  <div class="btn-lg"> TEST </div>
-  <div />
+  <h1> CHATROOM BOX </h1>
+    <ChatRoom />
+  <h1> CHATROOM BOX ENDS</h1>
 </template>
-
-<script setup lang="ts">
-import { ref } from 'vue'
-
-const count = ref(0)
-
-function increment() {
-  count.value++
-}
-</script>
