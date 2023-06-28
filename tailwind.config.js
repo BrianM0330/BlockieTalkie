@@ -10,6 +10,11 @@ module.exports = {
     "./app.vue",
   ],
   theme: {
+    colors: {
+      'blockblue': '#0B50CF',
+      'blockred': '#C13030',
+      'blockgreen': '#20553C',
+    },
     extend: {
       fontFamily: {
         'lores': ['lores', 'sans-serif']
