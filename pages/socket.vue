@@ -4,6 +4,7 @@
       <button type="submit" class="btn btn-primary">Send Message</button>
       <input v-model="message" />
     </form>
+    <div> {{ userCount }} </div>
     <h1 v-for="message in messages">
       {{ message }}
     </h1>
@@ -11,17 +12,24 @@
 </template>
 
 <script setup lang="ts">
-  const { $io } = useNuxtApp();
-  import { useMessagesStore } from '~/store/messages'
+  const { $io } = useNuxtApp()
+  import { storeToRefs } from 'pinia';
 
+  import { useMessagesStore } from '~/store/messages'
   const messageStore = useMessagesStore()
-  const { addMessage, messages } = messageStore
+
+  const { messages, userCount } = storeToRefs(messageStore)
+
+  const { addMessage, setUserCount } = messageStore
   const message = ref('')
 
 
   onMounted(() => {
     $io.on('message', ({ data }: { data: string}) => {
       addMessage(data)
+    })
+    $io.on('usercount', (data) => {
+      setUserCount(data)
     })
   })
 
