@@ -6,7 +6,7 @@ export const useMessagesStore = defineStore('messages', {
     userCount: 1
   }),
   actions: {
-    addMessage(msg: string) {
+    addMessage(msg) {
       this.messages.push(msg)
     },
     setUserCount(count: number) {

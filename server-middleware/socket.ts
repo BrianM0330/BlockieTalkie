@@ -13,13 +13,12 @@ io.on('connection', (socket) => {
 
 // Sets listeners for socket after it is CONNECTED to the server
 io.on('connect', (socket) => {
-  socket.emit('message', `welcome ${socket.id}`)
   socket.broadcast.emit('message', `${socket.id} joined`)
   socket.broadcast.emit('usercount', io.sockets.server.engine.clientsCount)
 
   socket.on('message', function message(data: any) {
     console.log('message received: %s', data)
-    socket.broadcast.emit('message', { data })
+    socket.broadcast.emit('message', data)
   })
 
   socket.on('disconnecting', () => {

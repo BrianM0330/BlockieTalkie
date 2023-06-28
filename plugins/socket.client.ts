@@ -9,7 +9,8 @@ export default defineNuxtPlugin(() => {
   //Socket Client
   const socket = io(config.public.SOCKET_URL)
 
-  socket.on('message', ({ data }: { data: string}) => {
+  socket.on('message', (data) => {
+    console.log('gotmessage', data)
     addMessage(data)
   })
 
@@ -18,6 +19,7 @@ export default defineNuxtPlugin(() => {
   })
 
   socket.sendMessage = (msg: string) => {
+    console.log('adding', msg)
     addMessage(msg)
     socket.emit('message', msg)
   }

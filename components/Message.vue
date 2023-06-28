@@ -1,5 +1,6 @@
 <template>
-  <div v-show="message" class="p-1 w-full bg-white">
+  <div v-show="message" class="p-1 w-full bg-white flex">
+    <img v-if="icon" :src="`/${icon.toLowerCase()}.png`" />
     <div v-if="!newPost && !ad" class="normalMessage flex">
       <div class="text-blockblue"> {{ sender }}:</div>
       <div class="ml-1 text-black"> {{ message }}</div>
@@ -16,13 +17,15 @@ export interface Props {
   newPost: boolean,
   ad: boolean,
   message: string,
-  sender: string
+  sender: string,
+  icon: string,
 }
 const props = withDefaults(defineProps<Props>(), {
   newPost: false,
   ad: false,
   message: '',
-  sender: '0x491491941'
+  sender: '0x491491941',
+  icon: ''
 })
 
 const specialMessage = computed(() => {
