@@ -1,12 +1,11 @@
 <template>
-  <div class="p-1 w-full bg-white">
+  <div class="p-1 w-full bg-white" :style="{ color }">
     {{ message }}
   </div>
 </template>
 
 <script setup lang="ts">
 export interface Props {
-  color: string,
   message: string,
   sender: string
 }
@@ -15,5 +14,9 @@ const props = withDefaults(defineProps<Props>(), {
   message: '',
   sender: ''
 })
+
+const color = computed(() => {
+  return ''
+});
 
 </script>

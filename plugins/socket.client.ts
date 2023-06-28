@@ -1,21 +1,30 @@
 import { io } from 'socket.io-client';
+import { useMessagesStore } from '~/store/messages'
+
 export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig()
-  console.log('URL:', config.public.SOCKET_URL)
+  const messageStore = useMessagesStore()
+  const { addMessage, setUserCount } = messageStore
 
   //Socket Client
-  const socket = io(config.public.SOCKET_URL); //REPLACE ME
+  const socket = io(config.public.SOCKET_URL)
 
-  socket.on('message', (msg: string) => {
-    console.log('amessagefromsocket', msg)
+  socket.on('message', ({ data }: { data: string}) => {
+    addMessage(data)
   })
 
-  socket.on('userjoined', () => {
-    console.log('USER JOINED')
+  socket.on('usercount', (data) => {
+    setUserCount(data)
   })
+
+  socket.sendMessage = (msg: string) => {
+    addMessage(msg)
+    socket.emit('message', msg)
+  }
+
   return {
-      provide: {
-          io: socket
-      }
+    provide: {
+      io: socket
+    }
   }
 });
