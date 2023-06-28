@@ -2,7 +2,7 @@
   <div class="font-lores flex flex-col gap-2 p-1 messageBox bg-red bg-white border-2 border-black h-1/2 w-96">
     <div id= "title" class="flex w-full h-10 border border-black items-center justify-self end">
       <div id="numberOfPeople" class="flex w-full p-1 "> Users ({{ userCount }}) </div>
-      <div id="minimizeIcon" class="h-6 w-6 margin-left justify-center items-center">
+      <div id="minimizeIcon" class="h-6 w-6 margin-left mr-2 justify-center items-center">
         <img src="~/assets/icons/minus.png" /> 
       </div>
     </div>
