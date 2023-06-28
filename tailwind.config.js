@@ -11,7 +11,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'lores': ['LoRes', 'sans-serif']
+        'lores': ['lores', 'sans-serif']
       }
     }
   },

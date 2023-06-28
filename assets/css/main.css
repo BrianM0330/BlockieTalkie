@@ -1,4 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('../fonts/LoRes.ttf');
+
+@font-face {
+  font-family: 'lores';
+  src: url('../fonts/LoRes.ttf')
+}
