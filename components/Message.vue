@@ -1,13 +1,13 @@
 <template>
-  <div v-show="message" class="p-1 w-full bg-white flex">
+  <div v-show="message" class="p-1 w-full bg-white flex gap-1">
     <img v-if="icon" :src="`/${icon.toLowerCase()}.png`" />
-    <div v-if="!newPost && !ad" class="normalMessage flex">
+    <div v-if="!newPost && !ad" class="normalMessage flex gap-1">
       <div class="text-blockblue"> {{ sender }}:</div>
       <vue-writer :array="[message]" :iterations="1" :typeSpeed="50"/>
     </div>
     <div v-else :class="bannerColor">
       <div> &lt;{{ specialMessage }}&gt; </div>
-      <div> {{ message }} </div>
+      <vue-writer :array="[message]" :iterations="1" :typeSpeed="50"/>
     </div>
   </div>
 </template>
