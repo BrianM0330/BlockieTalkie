@@ -2,7 +2,7 @@
   <div class="font-lores flex flex-col gap-2 p-1 messageBox bg-red bg-white border-2 border-black h-1/2 w-96">
     <div id= "title" class="flex w-96 h-12 -m-1.5 border-2 border-black items-center justify-between">
       <div id="numberOfPeople" class="flex w-auto p-2 text-xl"> Chat ({{ userCount }}) </div>
-      <div class="flex gap-2 items-center justify-center">
+      <div @click="$emit('connect')" class="flex gap-2 items-center justify-center">
         <div :class="indicatorClass" />
         <div> {{ statusMessage }} </div>
       </div>

@@ -4,6 +4,7 @@
       :messages="messages"
       :user-count="userCount"
       :user="userState"
+      @connect="userState.isConnected = true; !showPanel && (showPanel = true)"
       @send="(msg) => $io.sendMessage({
         message: msg,
         sender: {
