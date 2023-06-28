@@ -11,6 +11,13 @@ export default defineNuxtConfig({
       autoprefixer: {}
     }
   },
+  runtimeConfig: {
+    SOCKET_URL: process.env.SOCKET_URL,
+
+    public: {
+      SOCKET_URL: process.env.SOCKET_URL
+    }
+  },
   serverHandlers: [{
     route: '/ws',
     handler: '~/server-middleware/socket'
