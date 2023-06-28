@@ -71,7 +71,7 @@
           <div class="flex flex-col gap-2 mt-2" v-if="userState.isConnected && userState.hasAccess">
             <div > Icon (optional) </div>
             <div class="flex gap-2">
-              <img v-if="userState.icon" :src="`/${userState.icon}.png`" />
+              <img v-if="userState.icon" :src="`/${userState.icon.toLowerCase()}.png`" />
               <select class="border-2 border-black" v-model="userState.icon">
                 <option disabled value=""> Select one </option>
                 <option> Sun </option>
