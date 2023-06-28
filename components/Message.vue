@@ -3,7 +3,7 @@
     <img v-if="icon" :src="`/${icon.toLowerCase()}.png`" />
     <div v-if="!newPost && !ad" class="normalMessage flex">
       <div class="text-blockblue"> {{ sender }}:</div>
-      <div class="ml-1 text-black"> {{ message }}</div>
+      <vue-writer :array="[message]" :iterations="1" :typeSpeed="50"/>
     </div>
     <div v-else :class="bannerColor">
       <div> &lt;{{ specialMessage }}&gt; </div>
@@ -13,6 +13,8 @@
 </template>
 
 <script setup lang="ts">
+import VueWriter from 'vue-writer'
+
 export interface Props {
   newPost: boolean,
   ad: boolean,
