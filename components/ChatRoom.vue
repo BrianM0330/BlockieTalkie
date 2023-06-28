@@ -1,8 +1,8 @@
 <template>
   <div class="font-lores flex flex-col gap-2 p-1 messageBox bg-red bg-white border-2 border-black h-1/2 w-96">
-    <div id= "title" class="flex w-full h-10 border border-black items-center justify-self end">
-      <div id="numberOfPeople" class="flex w-full p-1 "> Users ({{ userCount }}) </div>
-      <div id="minimizeIcon" class="h-6 w-6 margin-left justify-center items-center">
+    <div id= "title" class="flex w-96 h-12 -m-1.5 border-2 border-black items-center justify-self end">
+      <div id="numberOfPeople" class="flex w-full p-2 text-xl"> chat ({{ userCount }}) </div>
+      <div id="minimizeIcon" class="h-6 w-6 margin-left mr-2 justify-center items-center">
         <img src="~/assets/icons/minus.png" /> 
       </div>
     </div>
@@ -17,13 +17,13 @@
       />
     </div>
     
-    <form @submit.prevent="$emit('send', message); message = ''" id="submissionArea" class="flex w-full gap-0.5">
+    <form @submit.prevent="$emit('send', message); message = ''" id="submissionArea" class="flex w-full h-10 gap-1">
       <input
         id="messageBox"
-        class="w-full h-10 p-1 border border-black"
+        class="w-full h-10 p-1 border-2 border-black justify-top"
         v-model="message"
       />
-      <button type="submit" class="w-10 h-10 margin-left flex justify-center items-center border border-black">
+      <button type="submit" class="w-12 h-10 margin-left flex justify-center items-center border-2 border-black">
         <img src="~/assets/icons/corner-down-right.png" />
       </button>
     </form>
