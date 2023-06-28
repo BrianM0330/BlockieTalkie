@@ -20,6 +20,5 @@ module.exports = {
         'lores': ['lores', 'sans-serif']
       }
     }
-  },
-  plugins: [require('daisyui')]
+  }
 }
