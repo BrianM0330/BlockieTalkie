@@ -20,10 +20,15 @@
     <form @submit.prevent="$emit('send', message); message = ''" id="submissionArea" class="flex w-full h-10 gap-1">
       <input
         id="messageBox"
-        class="w-full h-10 p-1 border-2 border-black justify-top"
+        class="w-full h-10 p-1 border-2 border-black justify-top
+        hover:border-blockblue
+        focus:border-blockblue focus:outline-none focus:caret-blockblue"
         v-model="message"
       />
-      <button type="submit" class="w-12 h-10 margin-left flex justify-center items-center border-2 border-black">
+      <button type="submit" class="
+      w-12 h-10 margin-left flex justify-center 
+      items-center border-2 border-black
+      hover:border-blockblue">
         <img src="~/assets/icons/corner-down-right.png" />
       </button>
     </form>
